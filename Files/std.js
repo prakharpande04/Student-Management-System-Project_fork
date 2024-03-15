@@ -2,6 +2,7 @@ var count = 0;
 var students = []; 
 var global_id;
 function addStudent(){
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
  
     const nameValue = document.getElementById('name').value;
     const emailValue = document.getElementById('email').value;
@@ -47,8 +48,12 @@ function addStudent(){
      return;
 
     }
-    if(nameValue=='' || emailValue=='' || ageValue=='' || gradeValue =='' || degreeValue=="" || contactValue==""){
+    if(nameValue=='' || emailValue=='' || emailValue==null || ageValue=='' || gradeValue =='' || degreeValue=="" || contactValue==""){
         alert("All fields are required!")
+    if(!emailValue.match(mailformat))
+    {
+        alert("You have entered an invalid email address !");
+    }
         return;
     }
     count++;
@@ -67,6 +72,7 @@ function addStudent(){
     document.getElementById('email').value="";
     document.getElementById('age').value="";
     document.getElementById('grade').value="";
+    document.getElementById('contact').value="";
     document.getElementById('degree').value="";
     console.log(students);
     showTable();
@@ -89,6 +95,7 @@ function showTable(){
         const email = document.createElement('td');
         const age = document.createElement('td');
         const grade = document.createElement('td');
+        const contact = document.createElement('td');
         const degree = document.createElement('td');
 
         keys.forEach((key)=>{
@@ -107,6 +114,9 @@ function showTable(){
             else if(key=='grade'){  
                 grade.innerHTML = student[key];
             }
+            else if(key=='contact'){  
+                grade.innerHTML = student[key];
+            }
             else
             degree.innerHTML = `<div class='degree'><div>${student[key]}</div> <div class="icons"><a onClick="edit(${student['ID']})" class='fa'>&#xf044;</a> <a onClick="del(${student['ID']})" class='fa'>&#xf1f8;</a> </div></div> `;
 
@@ -115,6 +125,7 @@ function showTable(){
             row.appendChild(email);
             row.appendChild(age);
             row.appendChild(grade);
+            row.appendChild(contact);
             row.appendChild(degree);       
         })
 
@@ -161,6 +172,7 @@ function edit(id) {
     document.querySelector("#email").value = student['email'];
     document.querySelector("#grade").value = student['grade'];
     document.querySelector("#age").value = student['age'];
+    document.querySelector("#contact").value = student['contact'];
     document.querySelector("#degree").value = student['degree'];
 
     document.getElementById("submit").innerText = "Edit Student";
