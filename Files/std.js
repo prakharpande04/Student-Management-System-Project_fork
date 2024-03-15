@@ -68,4 +68,55 @@ function addStudent(){
     showTable();
 }
 
+function showTable(){
+    const table = document.getElementById('tbody');
+    while (table.hasChildNodes()) {
+        table.removeChild(table.firstChild);
+    }
+
+    table.value="";
+    students.forEach((student)=>{
+
+        const row = document.createElement("tr");
+        var keys=Object.keys(student);
+
+        var id = document.createElement('td');
+        const name = document.createElement('td');
+        const email = document.createElement('td');
+        const age = document.createElement('td');
+        const grade = document.createElement('td');
+        const degree = document.createElement('td');
+
+        keys.forEach((key)=>{
+            if(key=='ID'){
+                id.innerHTML = student[key];
+            }
+            else if(key=='name'){
+                name.innerHTML = student[key];
+            }
+            else if(key=='email'){
+                email.innerHTML = student[key];
+            }
+            else if(key=='age'){
+                age.innerHTML = student[key];
+            }
+            else if(key=='grade'){  
+                grade.innerHTML = student[key];
+            }
+            else
+            degree.innerHTML = `<div class='degree'><div>${student[key]}</div> <div class="icons"><a onClick="edit(${student['ID']})" class='fa'>&#xf044;</a> <a onClick="del(${student['ID']})" class='fa'>&#xf1f8;</a> </div></div> `;
+
+            row.appendChild(id);
+            row.appendChild(name);
+            row.appendChild(email);
+            row.appendChild(age);
+            row.appendChild(grade);
+            row.appendChild(degree);       
+        })
+
+        table.appendChild(row);
+    })
+}
+
+
 
