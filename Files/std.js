@@ -8,6 +8,7 @@ function addStudent(){
     const ageValue = document.getElementById('age').value;
     const gradeValue = document.getElementById('grade').value;
     const degreeValue = document.getElementById('degree').value;
+    const contactValue = document.getElementById('contact').value;
 
     if(document.querySelector("#submit").innerText == "Edit Student"){
         console.log("this will edit and not add");
@@ -27,6 +28,7 @@ function addStudent(){
         studentobj['email'] = emailValue;
         studentobj['grade'] = gradeValue;
         studentobj['age'] = ageValue;
+        studentobj['contact'] = contactValue;
         studentobj['degree'] = degreeValue;
 
         students[index] = studentobj;
@@ -38,12 +40,14 @@ function addStudent(){
             document.getElementById('email').value="";
             document.getElementById('age').value="";
             document.getElementById('grade').value="";
+            document.getElementById('contact').value="";
             document.getElementById('degree').value="";
+
         
      return;
 
     }
-    if(nameValue=='' || emailValue=='' || ageValue=='' || gradeValue =='' || degreeValue==""){
+    if(nameValue=='' || emailValue=='' || ageValue=='' || gradeValue =='' || degreeValue=="" || contactValue==""){
         alert("All fields are required!")
         return;
     }
@@ -172,5 +176,3 @@ function del(id){
         }
     })
 }
-
-
