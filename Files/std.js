@@ -143,5 +143,34 @@ function search(){
   }
 }
 
+function edit(id) {
+    let student;
+    console.log(id);
+    for (let i = 0; i < students.length; i++) {
+        if (students[i]['ID'] == id) {
+            student = students[i];
+            break;
+        }
+    }
+
+    document.querySelector("#name").value = student['name'];
+    document.querySelector("#email").value = student['email'];
+    document.querySelector("#grade").value = student['grade'];
+    document.querySelector("#age").value = student['age'];
+    document.querySelector("#degree").value = student['degree'];
+
+    document.getElementById("submit").innerText = "Edit Student";
+
+    global_id=id;
+}
+
+function del(id){
+    students.forEach((student,index) => {
+        if(student['ID']==id){
+            students.splice(index,1);
+            showTable();
+        }
+    })
+}
 
 
