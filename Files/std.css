@@ -49,19 +49,21 @@ a:hover{
     gap:10px
 }
 .table{
-    border: 1px solid white;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: white;
     width:100%;
     border-spacing: 0;
     min-height: 200px;
     overflow-x: auto;
+    color: black;
 }
 
 th,td{
     text-align: center;
 }
 th{
-    border-bottom: 1px solid white;
-    border-right: 1px solid white;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-right: 1px solid rgb(0, 0, 0);
     padding: 10px;
 }
 td{
@@ -83,7 +85,6 @@ tbody{
     padding-left: 10px;
     color: white;
 }
-
 
 .button {
     height: 40px;
