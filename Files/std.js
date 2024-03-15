@@ -4,12 +4,12 @@ var global_id;
 function addStudent(){
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
  
-    const nameValue = document.getElementById('name').value;
-    const emailValue = document.getElementById('email').value;
-    const ageValue = document.getElementById('age').value;
-    const gradeValue = document.getElementById('grade').value;
-    const degreeValue = document.getElementById('degree').value;
-    const contactValue = document.getElementById('contact').value;
+    var nameValue = document.getElementById('name').value;
+    var emailValue = document.getElementById('email').value;
+    var ageValue = document.getElementById('age').value;
+    var gradeValue = document.getElementById('grade').value;
+    var educationValue = document.getElementById('education').value;
+    var contactValue = document.getElementById('contact').value;
 
     if(document.querySelector("#submit").innerText == "Edit Student"){
         console.log("this will edit and not add");
@@ -27,10 +27,10 @@ function addStudent(){
 
         studentobj['name'] = nameValue;
         studentobj['email'] = emailValue;
-        studentobj['grade'] = gradeValue;
         studentobj['age'] = ageValue;
+        studentobj['grade'] = gradeValue;
         studentobj['contact'] = contactValue;
-        studentobj['degree'] = degreeValue;
+        studentobj['education'] = educationValue;
 
         students[index] = studentobj;
 
@@ -42,11 +42,11 @@ function addStudent(){
             document.getElementById('age').value="";
             document.getElementById('grade').value="";
             document.getElementById('contact').value="";
-            document.getElementById('degree').value="";
+            document.getElementById('education').value="";
     return;
 
     }
-    if(nameValue=='' || emailValue=='' || emailValue==null || ageValue=='' || gradeValue =='' || degreeValue=="" || contactValue==""){
+    if(nameValue=='' || emailValue=='' || emailValue==null || ageValue=='' || gradeValue =='' || educationValue=="" || contactValue==""){
         alert("All fields are required!")
         return;
     }
@@ -66,7 +66,7 @@ function addStudent(){
         age:ageValue,
         grade:gradeValue,
         contact:contactValue,
-        degree:degreeValue
+        education:educationValue
     });
 
 
@@ -75,13 +75,13 @@ function addStudent(){
     document.getElementById('age').value="";
     document.getElementById('grade').value="";
     document.getElementById('contact').value="";
-    document.getElementById('degree').value="";
+    document.getElementById('education').value="";
     console.log(students);
     showTable();
 }
 
 function showTable(){
-    const table = document.getElementById('tbody');
+    var table = document.getElementById('tbody');
     while (table.hasChildNodes()) {
         table.removeChild(table.firstChild);
     }
@@ -89,16 +89,16 @@ function showTable(){
     table.value="";
     students.forEach((student)=>{
 
-        const row = document.createElement("tr");
+        var row = document.createElement("tr");
         var keys=Object.keys(student);
 
         var id = document.createElement('td');
-        const name = document.createElement('td');
-        const email = document.createElement('td');
-        const age = document.createElement('td');
-        const grade = document.createElement('td');
-        const contact = document.createElement('td');
-        const degree = document.createElement('td');
+        var name = document.createElement('td');
+        var email = document.createElement('td');
+        var age = document.createElement('td');
+        var grade = document.createElement('td');
+        var contact = document.createElement('td');
+        var education = document.createElement('td');
 
         keys.forEach((key)=>{
             if(key=='ID'){
@@ -117,10 +117,10 @@ function showTable(){
                 grade.innerHTML = student[key];
             }
             else if(key=='contact'){  
-                grade.innerHTML = student[key];
+                contact.innerHTML = student[key];
             }
             else
-            degree.innerHTML = `<div class='degree'><div>${student[key]}</div> <div class="icons"><a onClick="edit(${student['ID']})" class='fa'>&#xf044;</a> <a onClick="del(${student['ID']})" class='fa'>&#xf1f8;</a> </div></div> `;
+            education.innerHTML = `<div class='education'><div>${student[key]}</div> <div class="icons"><a onClick="edit(${student['ID']})" class='fa'>&#xf044;</a> <a onClick="del(${student['ID']})" class='fa'>&#xf1f8;</a> </div></div> `;
 
             row.appendChild(id);
             row.appendChild(name);
@@ -128,7 +128,7 @@ function showTable(){
             row.appendChild(age);
             row.appendChild(grade);
             row.appendChild(contact);
-            row.appendChild(degree);       
+            row.appendChild(education);       
         })
 
         table.appendChild(row);
@@ -175,7 +175,7 @@ function edit(id) {
     document.querySelector("#grade").value = student['grade'];
     document.querySelector("#age").value = student['age'];
     document.querySelector("#contact").value = student['contact'];
-    document.querySelector("#degree").value = student['degree'];
+    document.querySelector("#education").value = student['education'];
 
     document.getElementById("submit").innerText = "Edit Student";
 
