@@ -14,3 +14,31 @@ a:hover{
 #c_name{
     text-align: center;
 }
+.container{
+    margin: 20px 50px;
+}
+
+.input-container{
+   
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap:30px;
+    padding: 0;
+
+}
+
+.degree{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-container input{
+    background-color: black;
+    border: 1px solid white;
+    height: 40px;
+    padding-left: 10px;
+    width: auto;
+    color: white;
+}
