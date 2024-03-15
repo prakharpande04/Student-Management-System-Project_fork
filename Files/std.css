@@ -71,3 +71,24 @@ td{
 tbody{
     height: auto;
 }
+.search{
+    width:100%;
+    background-color: black;
+    border: 1px solid white;
+    height: 40px;
+    padding: 0;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width:100%;
+    padding-left: 10px;
+    color: white;
+}
+
+
+.button {
+    height: 40px;
+    width: 400px;
+    margin: 20px;
+    margin-left: 0;
+    margin-top: 30px;
+}
