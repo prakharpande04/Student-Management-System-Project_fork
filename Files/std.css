@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color: white;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+a:hover{
+    cursor: pointer;
+}
+
+#c_name{
+    text-align: center;
+}
