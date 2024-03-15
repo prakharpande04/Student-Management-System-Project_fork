@@ -43,19 +43,20 @@ function addStudent(){
             document.getElementById('grade').value="";
             document.getElementById('contact').value="";
             document.getElementById('degree').value="";
-
-        
-     return;
+    return;
 
     }
     if(nameValue=='' || emailValue=='' || emailValue==null || ageValue=='' || gradeValue =='' || degreeValue=="" || contactValue==""){
         alert("All fields are required!")
+        return;
+    }
+
     if(!emailValue.match(mailformat))
     {
         alert("You have entered an invalid email address !");
-    }
         return;
     }
+
     count++;
 
     students.push({
@@ -64,6 +65,7 @@ function addStudent(){
         email:emailValue,
         age:ageValue,
         grade:gradeValue,
+        contact:contactValue,
         degree:degreeValue
     });
 
