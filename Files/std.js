@@ -57,6 +57,24 @@ function addStudent(){
         return;
     }
 
+    if(gradeValue<0 || gradeValue>10)
+    {
+        alert("Invalid Grade Value ! ");
+        return;
+    }
+
+    if(ageValue<0)
+    {
+        alert("Invalid Age ! ");
+        return;
+    }
+
+    if(contactValue.length<7 || contactValue.length>15)
+    {
+        alert("Invalid contact number ! ");
+        return;
+    }
+
     count++;
 
     students.push({
